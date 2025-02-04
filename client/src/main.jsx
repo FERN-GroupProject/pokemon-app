@@ -13,8 +13,9 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <div>Hello World</div>
-      }
+        element: <div className='bg-red-500'>Hello World</div>
+      },
+      
     ]
   },
 ]);
