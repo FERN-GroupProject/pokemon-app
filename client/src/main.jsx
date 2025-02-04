@@ -6,18 +6,27 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from './App';
-import HomePage from './pages/HomePage';
+import DetailPage from './section/DetailPage';
+// import HomePage from './pages/HomePage';
 
 const router = createBrowserRouter([
   {
     element: <App />,
     children: [
+      // {
+      //   path: "/",
+      //   element: <HomePage />
+      // }
       {
-        path: "/",
-        element: <HomePage />
+        path: "/Detail/:id",
+        element: <DetailPage/>
       }
     ]
   },
+  {
+    path: "*", 
+    element: <div>404 Not Found</div>
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(
