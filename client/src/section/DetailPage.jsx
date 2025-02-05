@@ -6,7 +6,7 @@ export default function DetailPage() {
       style={{ backgroundColor: "#10181E", color: "white" }}
       className="h-screen"
     >
-      <div className="container mx-auto pt-8 px-4">
+      <div className="container mx-auto pt-8 px-4 h-screen">
         <Header />
       </div>
     </div>

@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import App from './App';
 import DetailPage from './section/DetailPage';
+import NotFound from './section/NotFound';
 // import HomePage from './pages/HomePage';
 
 const router = createBrowserRouter([
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*", 
-    element: <div>404 Not Found</div>
+    element: <NotFound/>
   }
 ]);
 
