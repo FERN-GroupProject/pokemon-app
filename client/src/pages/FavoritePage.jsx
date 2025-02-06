@@ -26,7 +26,7 @@ export default function FavoritePage() {
                 <NavBar />
             </div>
             <div className="container mx-auto flex items-center mb-5">
-                <h1 className="text-white text-2xl font-bold">Favorite Pokemon</h1>
+                <h1 className="text-white text-2xl font-bold">My Favorite Pokemon</h1>
             </div>
             <div className="w-full">
                 <DisplayPokemon pokemonData={favorites} />
