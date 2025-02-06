@@ -2,10 +2,11 @@ import "../style/style.css";
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
-import { FastAverageColor } from "fast-average-color";
 import Svg from "./Svg";
 import CardWeight from "./CardWeight";
 import DropdownComp from "./Dropdown";
+import SimpleSlider from "./Slider";
+import Stats from "./Stats";
 
 export default function Header() {
   const [pokemonData, setPokemonData] = useState({});
@@ -34,7 +35,6 @@ export default function Header() {
         const url = `https://pokeapi.co/api/v2/pokemon/${params.id}`;
         const response = await axios.get(url);
         setPokemonData(response.data);
-
         const species = await axios.get(response.data.species.url);
         setSpeciesData(species.data);
         playSuccessSound();
@@ -111,6 +111,7 @@ export default function Header() {
                 <div className="absolute top-3 left-0 items-center gap-2 flex z-30 flex-col">
                   {pokemonData.types.map((item) => (
                     <div
+                      key={item.type.name}
                       className={`bg-back-${item.type.name} rounded-full p-3`}
                     >
                       <img
@@ -120,8 +121,8 @@ export default function Header() {
                       />
                     </div>
                   ))}
-                  <div className="bg-white p-3 rounded-full cursor-pointer">
-                    <i className="fa-solid fa-heart text-red-600 text-2xl flex justify-center leading-none"></i>
+                  <div className="bg-red-600 p-3 rounded-full cursor-pointer">
+                    <i className="fa-solid fa-heart text-white text-2xl flex justify-center leading-none"></i>
                   </div>
                 </div>
                 <div className="absolute md:top-0 md:right-0 bottom-[-1rem] md:bottom-auto left-1/2 md:left-auto z-30 md:z-0 -translate-x-1/2 md:translate-x-0 flex md:flex-col gap-2">
@@ -134,6 +135,20 @@ export default function Header() {
           <p className="text-center">Loading...</p>
         )}
       </div>
+      {isImageLoaded && (
+        <div className="grid grid-cols-1 md:grid-cols-2 md:px-12 mt-8 gap-3">
+          <div className="gap-4 flex flex-col">
+
+            <SimpleSlider speciesData={speciesData} />
+            <Stats pokemonData={pokemonData}/>
+          </div>
+          
+          <div className="">
+            
+          </div>
+          
+        </div>
+      )}
     </div>
   );
 }

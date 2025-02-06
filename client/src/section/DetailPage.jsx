@@ -4,9 +4,12 @@ export default function DetailPage() {
   return (
     <div
       style={{ backgroundColor: "#10181E", color: "white" }}
-      className="h-screen"
+      className="min-h-screen"
     >
-      <div className="container mx-auto pt-8 px-4 h-screen">
+      <div
+        style={{ backgroundColor: "#10181E", color: "white" }}
+        className="container mx-auto pt-8 px-4 min-h-screen"
+      >
         <Header />
       </div>
     </div>

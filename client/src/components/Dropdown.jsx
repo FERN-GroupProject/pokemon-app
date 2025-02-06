@@ -15,7 +15,7 @@ export default function DropdownComp({ speciesData }) {
         </span>
       )}
     >
-      {speciesData.varieties.map((variety, i) => (
+      {speciesData.varieties.map((variety) => (
         <Dropdown.Item
           key={variety.pokemon.name}
           className="w-full min-w-max capitalize text-white focus:bg-[#2B3945] hover:bg-[#2B3945]"
