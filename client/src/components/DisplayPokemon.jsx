@@ -1,5 +1,17 @@
+import axios from 'axios';
+import { BookmarkPlus } from 'lucide-react';
+import { toast } from 'react-toastify';
+
 export default function DisplayPokemon({pokemonData}) {
     
+    const addToFavorites = async (pokemon) => {
+        try {
+            await axios.post('http://localhost:3000/favorites', pokemon);
+            toast.success(`${pokemon.name} added to favorites!`);
+        } catch (error) {
+            toast.error(`Error: ${error.message}`);
+        }
+    };
 
     return (
         <>
@@ -18,6 +30,12 @@ export default function DisplayPokemon({pokemonData}) {
                     </div>
                     <div>
                         <img src={item.image} alt={item.name} className="mb-2 w-24 h-24 object-fit" />
+                            <button 
+                                className="bg-red-500 text-white p-0.5 rounded mt-2 flex ml-auto"
+                                onClick={() => addToFavorites(item)}
+                            >
+                                <BookmarkPlus />
+                            </button>
                     </div>
                 </div>
                 

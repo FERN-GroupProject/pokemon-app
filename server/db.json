@@ -1,1 +1,18 @@
-{}
+{
+  "favorites": [
+    {
+      "id": "195d",
+      "name": "venusaur",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+      "type": "grass, poison",
+      "color": "green"
+    },
+    {
+      "id": "e964",
+      "name": "ivysaur",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
+      "type": "grass, poison",
+      "color": "green"
+    }
+  ]
+}

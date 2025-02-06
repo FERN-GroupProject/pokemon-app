@@ -3,6 +3,7 @@ import DisplayPokemon from "../components/DisplayPokemon";
 import NavBar from "../components/NavBar";
 import {toast}  from "react-toastify";
 import axios from 'axios'
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
 
@@ -125,10 +126,7 @@ export default function HomePage() {
                     <option value="steel">Steel</option>
                     <option value="flying">Flying</option>
                 </select>
-                <select className="text-zinc-500 text-sm bg-zinc-800 p-2 border-none rounded cursor-pointer">
-                    Filter 2
-                </select>
-                <button className="text-zinc-500 text-sm bg-zinc-800 p-2 border-none rounded cursor-pointer">Favorite</button>
+                <Link to="/favorite" className="text-zinc-500 text-sm bg-zinc-800 p-2 border-none rounded cursor-pointer">Favorite</Link>
             </div>
             <div className="w-full">
                 <DisplayPokemon pokemonData={filteredPokemon}/>
