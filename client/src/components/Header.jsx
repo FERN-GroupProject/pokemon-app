@@ -7,10 +7,12 @@ import CardWeight from "./CardWeight";
 import DropdownComp from "./Dropdown";
 import SimpleSlider from "./Slider";
 import Stats from "./Stats";
+import Abilities from "./Abilities";
 
 export default function Header() {
   const [pokemonData, setPokemonData] = useState({});
   const [speciesData, setSpeciesData] = useState(null);
+  const [abilitiesData, setAbilitiesData] = useState([]);
   const [svgColor, setSvgColor] = useState("#FFFFFF");
   const [isLoading, setIsLoading] = useState(true);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -28,6 +30,13 @@ export default function Header() {
     });
   };
 
+  const customTheme = {
+    root: {
+      base: "flex rounded-lg bg-[#172026] shadow-md ",
+      children: "flex h-full flex-col justify-center gap-2 md:gap-3 p-6",
+    },
+  };
+
   useEffect(() => {
     const getPokemonData = async () => {
       try {
@@ -37,6 +46,16 @@ export default function Header() {
         setPokemonData(response.data);
         const species = await axios.get(response.data.species.url);
         setSpeciesData(species.data);
+        const abilityUrls = response.data.abilities.map(
+          (item) => item.ability.url
+        );
+        const abilitiesData = await Promise.all(
+          abilityUrls.map(async (url) => {
+            const res = await axios.get(url);
+            return res.data;
+          })
+        );
+        setAbilitiesData(abilitiesData);
         playSuccessSound();
       } catch (error) {
         console.log(error);
@@ -136,17 +155,15 @@ export default function Header() {
         )}
       </div>
       {isImageLoaded && (
-        <div className="grid grid-cols-1 md:grid-cols-2 md:px-12 mt-8 gap-3">
-          <div className="gap-4 flex flex-col">
-
+        <div className="grid grid-cols-1 md:grid-cols-2 md:px-12 mt-8 gap-3 md:gap-4">
+          <div className="gap-3 md:gap-4 flex flex-col">
             <SimpleSlider speciesData={speciesData} />
-            <Stats pokemonData={pokemonData}/>
+            <Stats pokemonData={pokemonData} customTheme={customTheme} />
           </div>
-          
-          <div className="">
-            
+
+          <div className="flex flex-col gap-3 md:gap-4">
+            <Abilities pokemonData={pokemonData} abilities={abilitiesData} customTheme={customTheme}/>
           </div>
-          
         </div>
       )}
     </div>

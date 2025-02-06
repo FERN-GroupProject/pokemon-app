@@ -1,13 +1,7 @@
 import { Card, Progress } from "flowbite-react";
 import React from "react";
 
-export default function Stats({ pokemonData }) {
-  const customTheme = {
-    root: {
-      base: "flex rounded-lg bg-[#172026] shadow-md ",
-      children: "flex h-full flex-col justify-center gap-2 md:gap-3 p-6",
-    },
-  };
+export default function Stats({ pokemonData, customTheme }) {
 
   const customBar = {
     base: "w-full overflow-hidden rounded-full bg-gray-700",
@@ -19,8 +13,8 @@ export default function Stats({ pokemonData }) {
   return (
     <Card theme={customTheme} className="w-full">
       <h5 className="text-2xl font-bold tracking-tight text-white">Stats</h5>
-      {pokemonData.stats.map((item) => (
-        <div className="flex items-center w-full justify-between">
+      {pokemonData.stats.map((item,i) => (
+        <div key={i} className="flex items-center w-full justify-between">
           <p className="font-medium text-gray-400 whitespace-nowrap pe-3 capitalize">
             {item.stat.name === "special-attack"
               ? "Sp. Attack"
