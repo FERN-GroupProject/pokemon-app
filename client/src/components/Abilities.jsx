@@ -16,7 +16,7 @@ export default function Abilities({ pokemonData, abilities, customTheme }) {
           <div key={i}>
             <List.Item className="capitalize">
               {item.ability.name}
-              {item.is_hidden === true ? <span className="py-1 ms-2 px-2 bg-white text-gray-500 rounded-lg text-xs">Hidden</span> : null}
+              {item.is_hidden === true ? <span className="py-1 ms-2 px-2 bg-white text-gray-800 rounded-lg text-xs">Hidden</span> : null}
             </List.Item>
             {abilities[i]?.effect_entries?.find(
               (entry) => entry.language?.name === "en"

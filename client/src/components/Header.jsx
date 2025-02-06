@@ -162,6 +162,7 @@ export default function Header() {
           </div>
 
           <div className="flex flex-col gap-3 md:gap-4">
+            
             <Abilities pokemonData={pokemonData} abilities={abilitiesData} customTheme={customTheme}/>
           </div>
         </div>
