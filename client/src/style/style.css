@@ -1,0 +1,23 @@
+
+
+:root {
+  --back-undefined: #e5e7eb;
+  --back-bug: #9dc130;
+  --back-dark: #5f606d;
+  --back-dragon: #0773c7;
+  --back-electric: #edd53f;
+  --back-fairy: #ef97e6;
+  --back-fighting: #d94256;
+  --back-fire: #fc6c6d;
+  --back-flying: #9bb4e8;
+  --back-ghost: #7975d4;
+  --back-grass: #5dbe62;
+  --back-ground: #d78555;
+  --back-ice: #98d8d8;
+  --back-normal: #9a9da1;
+  --back-poison: #b563ce;
+  --back-psychic: #f85888;
+  --back-rock: #cec18c;
+  --back-steel: #b8b8d0;
+  --back-water: #60a5fa;
+}
