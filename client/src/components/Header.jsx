@@ -10,6 +10,8 @@ import Stats from "./Stats";
 import Abilities from "./Abilities";
 import Desc from "./Desc";
 import Breeding from "./Breeding";
+import { toast } from "react-toastify";
+
 
 export default function Header() {
   const [pokemonData, setPokemonData] = useState({});
@@ -21,6 +23,7 @@ export default function Header() {
   const playSoundRef = useRef(false);
   const imgRef = useRef(null);
   const params = useParams();
+
 
   const playSuccessSound = () => {
     if (playSoundRef.current) return;
@@ -142,9 +145,6 @@ export default function Header() {
                       />
                     </div>
                   ))}
-                  <div className="bg-red-600 p-3 rounded-full cursor-pointer">
-                    <i className="fa-solid fa-heart text-white text-2xl flex justify-center leading-none"></i>
-                  </div>
                 </div>
                 <div className="absolute md:top-0 md:right-0 bottom-[-1rem] md:bottom-auto left-1/2 md:left-auto z-30 md:z-0 -translate-x-1/2 md:translate-x-0 flex md:flex-col gap-2">
                   <CardWeight pokemonData={pokemonData} />
