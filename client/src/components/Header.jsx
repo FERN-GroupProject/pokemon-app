@@ -165,6 +165,7 @@ export default function Header() {
             </div>
             <Stats pokemonData={pokemonData} customTheme={customTheme} />
             <div className="block md:hidden">
+              
               <Abilities
                 pokemonData={pokemonData}
                 abilities={abilitiesData}
