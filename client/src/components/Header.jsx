@@ -9,6 +9,7 @@ import SimpleSlider from "./Slider";
 import Stats from "./Stats";
 import Abilities from "./Abilities";
 import Desc from "./Desc";
+import Breeding from "./Breeding";
 
 export default function Header() {
   const [pokemonData, setPokemonData] = useState({});
@@ -163,17 +164,27 @@ export default function Header() {
               <Desc customTheme={customTheme} speciesData={speciesData} />
             </div>
             <Stats pokemonData={pokemonData} customTheme={customTheme} />
+            <div className="block md:hidden">
+              <Abilities
+                pokemonData={pokemonData}
+                abilities={abilitiesData}
+                customTheme={customTheme}
+              />
+            </div>
+            <Breeding customTheme={customTheme} speciesData={speciesData} />
           </div>
 
           <div className="flex flex-col gap-3 md:gap-4">
             <div className="hidden md:block">
               <Desc customTheme={customTheme} speciesData={speciesData} />
             </div>
-            <Abilities
-              pokemonData={pokemonData}
-              abilities={abilitiesData}
-              customTheme={customTheme}
-            />
+            <div className="hidden md:block">
+              <Abilities
+                pokemonData={pokemonData}
+                abilities={abilitiesData}
+                customTheme={customTheme}
+              />
+            </div>
           </div>
         </div>
       )}
