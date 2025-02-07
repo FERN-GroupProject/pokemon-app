@@ -1,0 +1,40 @@
+
+.slick-dots {
+  position: absolute !important;
+  bottom: -25px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.slick-dots li button {
+  background-color: white !important;
+  border-radius: 50% !important;
+  width: 10px !important;
+  height: 10px !important;
+  padding: 0 !important;
+  transition: background-color 0.3s !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: transparent !important;
+}
+
+.slick-dots li button:before {
+  color: transparent !important;
+}
+
+.slick-dots .slick-active button {
+  background-color: #2F424E !important;
+}
+
+.slick-dots li button:hover {
+  background-color: #3B5362 !important;
+}
+
+.slick-slide {
+  display: flex !important;
+  justify-content: center !important;
+  padding: 10px !important;
+}
