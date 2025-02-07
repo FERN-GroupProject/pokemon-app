@@ -1,7 +1,7 @@
 import "../style/style.css";
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Svg from "./Svg";
 import CardWeight from "./CardWeight";
 import DropdownComp from "./Dropdown";
@@ -10,6 +10,7 @@ import Stats from "./Stats";
 import Abilities from "./Abilities";
 import Desc from "./Desc";
 import Breeding from "./Breeding";
+import { toast } from "react-toastify";
 
 export default function Header() {
   const [pokemonData, setPokemonData] = useState({});
@@ -85,9 +86,11 @@ export default function Header() {
           <p>Loading...</p>
         ) : (
           <div>
-            <div className="text-lg md:text-2xl capitalize font-medium">
-              {pokemonData.name.replace("-", " ")}
-            </div>
+            <Link to="/">
+              <div className="text-lg md:text-2xl capitalize font-medium">
+                {pokemonData.name.replace("-", " ")}
+              </div>
+            </Link>
             <div className="text-md md:text-lg font-normal text-gray-300">
               #{String(pokemonData.id).padStart(4, "0")}
             </div>
@@ -142,9 +145,6 @@ export default function Header() {
                       />
                     </div>
                   ))}
-                  <div className="bg-red-600 p-3 rounded-full cursor-pointer">
-                    <i className="fa-solid fa-heart text-white text-2xl flex justify-center leading-none"></i>
-                  </div>
                 </div>
                 <div className="absolute md:top-0 md:right-0 bottom-[-1rem] md:bottom-auto left-1/2 md:left-auto z-30 md:z-0 -translate-x-1/2 md:translate-x-0 flex md:flex-col gap-2">
                   <CardWeight pokemonData={pokemonData} />
@@ -157,7 +157,7 @@ export default function Header() {
         )}
       </div>
       {isImageLoaded && (
-        <div className="grid grid-cols-1 md:grid-cols-2 md:px-12 mt-8 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:px-12 mt-8 gap-3 md:gap-4">
           <div className="gap-3 md:gap-4 flex flex-col">
             <SimpleSlider speciesData={speciesData} />
             <div className="block md:hidden">
