@@ -1,7 +1,7 @@
 import "../style/style.css";
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Svg from "./Svg";
 import CardWeight from "./CardWeight";
 import DropdownComp from "./Dropdown";
@@ -11,7 +11,6 @@ import Abilities from "./Abilities";
 import Desc from "./Desc";
 import Breeding from "./Breeding";
 import { toast } from "react-toastify";
-
 
 export default function Header() {
   const [pokemonData, setPokemonData] = useState({});
@@ -23,7 +22,6 @@ export default function Header() {
   const playSoundRef = useRef(false);
   const imgRef = useRef(null);
   const params = useParams();
-
 
   const playSuccessSound = () => {
     if (playSoundRef.current) return;
@@ -88,9 +86,11 @@ export default function Header() {
           <p>Loading...</p>
         ) : (
           <div>
-            <div className="text-lg md:text-2xl capitalize font-medium">
-              {pokemonData.name.replace("-", " ")}
-            </div>
+            <Link to="/">
+              <div className="text-lg md:text-2xl capitalize font-medium">
+                {pokemonData.name.replace("-", " ")}
+              </div>
+            </Link>
             <div className="text-md md:text-lg font-normal text-gray-300">
               #{String(pokemonData.id).padStart(4, "0")}
             </div>
@@ -165,7 +165,6 @@ export default function Header() {
             </div>
             <Stats pokemonData={pokemonData} customTheme={customTheme} />
             <div className="block md:hidden">
-              
               <Abilities
                 pokemonData={pokemonData}
                 abilities={abilitiesData}
