@@ -157,7 +157,7 @@ export default function Header() {
         )}
       </div>
       {isImageLoaded && (
-        <div className="grid grid-cols-1 md:grid-cols-2 md:px-12 mt-8 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:px-12 mt-8 gap-3 md:gap-4">
           <div className="gap-3 md:gap-4 flex flex-col">
             <SimpleSlider speciesData={speciesData} />
             <div className="block md:hidden">
