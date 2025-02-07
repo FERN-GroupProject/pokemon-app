@@ -1,18 +1,18 @@
 {
   "favorites": [
     {
-      "id": "195d",
-      "name": "venusaur",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
-      "type": "grass, poison",
-      "color": "green"
+      "id": "6a39",
+      "name": "charmeleon",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
+      "type": "fire",
+      "color": "red"
     },
     {
-      "id": "e964",
-      "name": "ivysaur",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
-      "type": "grass, poison",
-      "color": "green"
+      "id": "6ee8",
+      "name": "weedle",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png",
+      "type": "bug, poison",
+      "color": "brown"
     }
   ]
 }
