@@ -33,7 +33,7 @@ export default function Stats({ pokemonData, customTheme }) {
               }`}
             />
           </div>
-          <p className="font-medium text-gray-400 whitespace-nowrap min-w-14 md:min-w-16 text-right">
+          <p className="font-medium text-gray-400 whitespace-nowrap min-w-14 lg:min-w-16 text-right">
             {item.base_stat}%
           </p>
         </div>

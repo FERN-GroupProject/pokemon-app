@@ -8,6 +8,7 @@ import DropdownComp from "./Dropdown";
 import SimpleSlider from "./Slider";
 import Stats from "./Stats";
 import Abilities from "./Abilities";
+import Desc from "./Desc";
 
 export default function Header() {
   const [pokemonData, setPokemonData] = useState({});
@@ -158,12 +159,21 @@ export default function Header() {
         <div className="grid grid-cols-1 md:grid-cols-2 md:px-12 mt-8 gap-3 md:gap-4">
           <div className="gap-3 md:gap-4 flex flex-col">
             <SimpleSlider speciesData={speciesData} />
+            <div className="block md:hidden">
+              <Desc customTheme={customTheme} speciesData={speciesData} />
+            </div>
             <Stats pokemonData={pokemonData} customTheme={customTheme} />
           </div>
 
           <div className="flex flex-col gap-3 md:gap-4">
-            
-            <Abilities pokemonData={pokemonData} abilities={abilitiesData} customTheme={customTheme}/>
+            <div className="hidden md:block">
+              <Desc customTheme={customTheme} speciesData={speciesData} />
+            </div>
+            <Abilities
+              pokemonData={pokemonData}
+              abilities={abilitiesData}
+              customTheme={customTheme}
+            />
           </div>
         </div>
       )}
