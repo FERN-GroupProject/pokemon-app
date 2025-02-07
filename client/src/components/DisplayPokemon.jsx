@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 
@@ -17,7 +18,9 @@ export default function DisplayPokemon({pokemonData}) {
         <>  
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
                 { Array.isArray(pokemonData) && pokemonData.map((item, index) => (
-                <div key={item.name} className="bg-white rounded-2xl shadow-md p-4 flex justify-between items-center">
+                    <Link to={`/Detail/${item.name}`} key={item.name}>
+                    
+                <div className="bg-white rounded-2xl shadow-md p-4 flex justify-between items-center">
                     <div>
                         <h2 className="text-xl font-bold capitalize">{item.name}</h2>
                         <p className="text-gray-600 text-sm mb-2">#{String(index + 1).padStart(4, '0')}</p>
@@ -38,6 +41,7 @@ export default function DisplayPokemon({pokemonData}) {
                             </button>
                     </div>
                 </div>
+                    </Link>
                 
                 ))}
             </div>
